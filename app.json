@@ -1,11 +1,16 @@
 {
   "expo": {
-    "name": "ace",
+    "name": "ace-em",
     "slug": "ace",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./assets/Splash.png",
+      "backgroundColor": "#21EC5A",
+      "resizeMode": "cover"
+    }
   },
-  "name": "ace"
+  "name": "ace-em"
 }

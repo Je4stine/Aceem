@@ -1,22 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from './Components/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import MainStackNavigation from './Components/Navigation/Navigation';
 
 export default function App() {
   return (
     <SafeAreaView>
-      <Login />
+      <MainStackNavigation/>
     </SafeAreaView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};

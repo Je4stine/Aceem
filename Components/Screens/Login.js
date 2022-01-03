@@ -1,17 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useState } from 'react';
+import { KeyboardAvoidingView } from 'react-native-web';
+// import { useNavigation} from '@react-navigation/native';
 
-const Login = () => {
+
+
+const Login = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // const navigation = useNavigation();
 
     return (
-        <View style={{backgroundColor:'21EC5A'}}>
-                <Image source={require('../assets/Full.png')} style={styles.logo}/>
-                <Text style={styles.loginText}>Login</Text>
+        <>
+        <View style={{backgroundColor: '#E4FFEC', width:'auto', height: Dimensions.get('screen').height}}> 
+        <View>
+                <Image source={require('../../assets/Full.png')} style={styles.logo}/>
+                {/* <Text style={styles.loginText}>Login</Text> */}
                 <Text style={styles.loginText}>Email or Username</Text>
+                
+                <KeyboardAvoidingView behavior="padding">
                 <TextInput 
                 style={styles.input}
                 onChange={setEmail}/>
@@ -19,22 +28,27 @@ const Login = () => {
                 <Text style={styles.loginText}>Password</Text>
                 <TextInput 
                 style={styles.input}
-                onChange={setPassword}/>
-                
+                onChange={setPassword}
+                keyboardType='default'
+                secureTextEntry={true}/>
+
+                </KeyboardAvoidingView>
                 <TouchableOpacity>
                 <Text style={styles.forgotPassword}>Forgot Password?</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={navigation.navigate('HomePage')}>
                     <View style={styles.loginBtn}>
                         <Text style={styles.loginBtnText}>Login</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={navigation.navigate('SignUp')}>
                     <Text style={styles.loginText}>
                          Don't have an account? Create one
                     </Text>
                 </TouchableOpacity>
         </View>
+        </View>
+        </>
     )
 };
 
@@ -51,15 +65,17 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginLeft: 20,
         marginTop: 20,
+        fontWeight: 'bold',
     },
     input: {
-        borderWidth: 3,
+        borderWidth: 2,
         borderColor: '#21EC5A',
-        borderRadius: 10,
+        borderRadius: 15,
         marginLeft: 20,
         marginRight: 20,
         marginTop: 10,
         height: 40,
+        padding: 10,
     },
     forgotPassword: {
         marginTop: 10,
@@ -85,6 +101,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
 
 });
