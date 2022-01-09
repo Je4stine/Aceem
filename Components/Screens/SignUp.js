@@ -4,7 +4,7 @@ import { KeyboardAvoidingView } from 'react-native-web';
 import { ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useState } from 'react';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     return (
