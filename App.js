@@ -7,7 +7,7 @@ import MainStackNavigation from './Components/Navigation/Navigation';
 export default function App() {
   return (
     <SafeAreaView>
-      <MainStackNavigation/>
+      <MainStackNavigation />
     </SafeAreaView>
   );
 };
